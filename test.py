@@ -15,9 +15,12 @@ Answer: Let's think step by step."""
 
 prompt = PromptTemplate(template=template, input_variables=["question"])
 
-repo_id = "Amirhparizi/Text_to_SQL_BART_SIMPLE"  # See https://huggingface.co/models?pipeline_tag=text-generation&sort=downloads for some other options
+#tsdocode/text-to-sql
+#alibidaran/sql_generator
+
+repo_id = "juierror/text-to-sql-with-table-schema"  # See https://huggingface.co/models?pipeline_tag=text-generation&sort=downloads for some other options
 llm = HuggingFaceHub(
-    repo_id=repo_id, model_kwargs={"temperature": 0.5, "max_length": 64}
+    repo_id=repo_id, model_kwargs={"temperature": 1.5, "max_length": 64}
 )
 llm_chain = LLMChain(prompt=prompt, llm=llm)
 print(datetime.now())
