@@ -2,7 +2,7 @@ from typing import List
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 
-repo_id = "juierror/text-to-sql-with-table-schema"
+repo_id = "saikiranmaddukuri/chat_to_sql0.17"
 tokenizer = AutoTokenizer.from_pretrained(repo_id)
 model = AutoModelForSeq2SeqLM.from_pretrained(repo_id)
 
@@ -21,4 +21,4 @@ def inference(question: str, table: List[str]) -> str:
     result = tokenizer.decode(token_ids=outputs[0], skip_special_tokens=True)
     return result
 
-print(inference(question="get people name with age equal 25", table=["id", "name", "age"]))
+print(inference(question="list all car names", table=["id", "name", "rating"]))
